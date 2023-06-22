@@ -1,0 +1,16 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; Back</a>
+</div>
+
+<div class="card-body">
+    <form method="POST" action=""> <! -- left blank because it will go to same url it was before -- >
+        {% csrf_token %} <! -- prevents malicious attacks(necessary!) -- >
+        {{form.as_p}} <! -- django already creates a form of our model and it's default name is form -- >
+        <input class="button" type="submit" value="Submit">
+    </form> 
+</div>
+
+{% endblock content %}
